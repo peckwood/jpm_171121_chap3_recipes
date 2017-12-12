@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis3.o3.mappers.StudentMapper">
+	<resultMap type="student" id="studentResultMap">
+		<id property="studId" column="stud_id" />
+		<result property="email" column="email"/>
+		<result property="dob" column="dob"/>
+	</resultMap>
+
+	<select id="findAllStudentsByNameEmail" resultMap="studentResultMap">
+		select * from students
+			where name = #{param1} and email=#{param2}
+	</select>
+</mapper>
